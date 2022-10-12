@@ -1,0 +1,10 @@
+fun main() {
+
+// 변수할당문제 val = 불변, var = 가변
+
+    val discountPercentage = 20
+    val item = "Google Chromecast"
+    val offer = "Sale  - Up to $discountPercentage% discount off $item! Hurry Up!"
+
+    println(offer)
+}
