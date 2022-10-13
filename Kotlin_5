@@ -1,0 +1,65 @@
+package com.example.tutorial_1
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.tutorial_1.ui.theme.Tutorial_1Theme
+
+// 책화면 예제 1
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Tutorial_1Theme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    color = MaterialTheme.colors.background
+                ) {
+                    setImagewithtext(stringResource(R.string.text1),stringResource(R.string.text2),stringResource(R.string.text3))
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun setImagewithtext(text1: String, text2: String, text3: String) {
+       val image = painterResource(id = R.drawable.bg_compose_background)
+      Box{
+          Image(painter = image, contentDescription = null, modifier = Modifier.wrapContentWidth().fillMaxHeight(),
+              contentScale = ContentScale.Crop)
+      }
+    fill_text(text1=text1, text2=text2, text3=text3)
+}
+
+@Composable
+fun fill_text(text1: String, text2: String, text3: String) {
+    Column(){
+        Text(text = text1, fontSize = 24.sp, modifier = Modifier.padding(16.dp))
+        Text(text = text2, fontSize = 16.sp, modifier = Modifier.padding(16.dp,0.dp,16.dp,0.dp), textAlign = TextAlign.Justify)
+        Text(text = text3, fontSize = 16.sp, modifier = Modifier.padding(16.dp,16.dp,16.dp,16.dp), textAlign = TextAlign.Justify)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    Tutorial_1Theme {
+        setImagewithtext(stringResource(R.string.text1),stringResource(R.string.text2),stringResource(R.string.text3))
+    }
+}
