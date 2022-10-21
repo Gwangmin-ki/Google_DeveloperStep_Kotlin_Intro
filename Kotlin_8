@@ -1,0 +1,31 @@
+영화 티켓은 일반적으로 관람자의 연령에 따라 가격이 다르게 책정됩니다.
+
+다음 코드 스니펫에 제공된 초기 코드에서 연령을 기준으로 티켓 가격을 계산하는 프로그램을 작성합니다.
+
+만 12세 이하 어린이용 티겟 가격 15달러
+만 13~60세용 표준 티켓 가격 30달러. 월요일에는 이 연령대를 대상으로 표준 티켓 가격을 25달러로 할인합니다.
+만 61세 이상용 노인 티켓 가격 20달러. 영화 관람자의 최대 연령을 100세로 가정합니다.
+-1 값은 사용자가 연령 분류에 속하지 않는 연령을 입력하는 경우 유효하지 않은 가격을 나타냅니다.
+
+fun main() {
+    val child = 5
+    val adult = 28
+    val senior = 87
+
+    val isMonday = true
+
+    println("The movie ticket price for a person aged $child is  \$${ticketPrice(child, isMonday)}.")
+    println("The movie ticket price for a person aged $adult is \$${ticketPrice(adult, isMonday)}.")
+    println("The movie ticket price for a person aged $senior is \$${ticketPrice(senior, isMonday)}.")
+}
+
+fun ticketPrice(age: Int, isMonday: Boolean): Int {
+    // Fill in the code.
+    return when(age){
+        in(0..12) ->  12
+        in(13..50) -> if(isMonday) 25 else 30
+        in(61..100) -> 20
+        else -> -1
+    }
+    
+}
