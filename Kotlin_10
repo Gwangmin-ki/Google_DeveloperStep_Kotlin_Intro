@@ -1,0 +1,20 @@
+노래의 구조를 나타낼 수 있는 클래스 Song
+클래스에 다음 코드 요소를 포함해야 합니다.
+
+제목, 아티스트, 발표 연도, 재생 횟수의 속성
+
+fun main() {
+    val popular = Song("눈코입", "태양", 2022, 1_000_000)
+    popular.printDescription()
+}
+
+class Song(
+    val title: String,
+    val artist: String,
+    val yearPublished: Int,
+    val playCount: Int
+){
+    fun printDescription() {
+        println("$title, performed by $artist, was released in $yearPublished.")
+    }
+}
